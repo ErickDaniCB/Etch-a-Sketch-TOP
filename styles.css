@@ -1,0 +1,31 @@
+html {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+}
+
+#canvas { 
+    width: 768px;
+    height: 768px;
+    border: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dot {
+    width: 48px;
+    height: 48px;
+    border: 1px solid green;
+    margin: -1px;   
+}
