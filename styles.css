@@ -33,4 +33,9 @@ header {
 }
 .pixel {
     border: 1px solid black;
+    background-color: white;
+}
+
+.colored {
+    background-color: black;
 }
