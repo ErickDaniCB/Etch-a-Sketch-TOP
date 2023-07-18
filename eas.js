@@ -29,18 +29,18 @@ function emptyCanvas() {
     }
 }
 
-// Canvas Slider-Range
+// Canvas density slider selector
 function changePix (value) {
     pixelNum = value;
     emptyCanvas();
     fillCanvas(value);
 }
 
-// Colored Cleaner
+// Clear All Button
 let clearButton = document.querySelector('#clear');
-let pixelsNode = document.querySelectorAll('.pixel');
+clearButton.addEventListener('click', cleaner);
+
 function cleaner () {
+    let pixelsNode = document.querySelectorAll('.pixel');
     pixelsNode.forEach((item) => item.classList.remove('colored'))
 }
-
-clearButton.addEventListener('click', cleaner);
