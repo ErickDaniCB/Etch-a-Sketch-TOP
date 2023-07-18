@@ -12,11 +12,17 @@
         <h1 id="header">Etch-a-Sketch</h1>
     </header>
     <main>
-        <div class="panel">
-            <button id="clear">Clear All</button>
-            <input id="range" type="range" value="16" min="16" max="100" oninput="changePix(this.value)">
-        </div>
-        <div id="container">
+        <div id="main">
+            <div class="panel">
+                <button id="restart">Restart</button>
+                <p>Pixel Density:</p>
+                <input id="range" type="range" value="16" min="16" max="50" oninput="changePix(this.value)">
+                <div id="sliderLabel"></div>
+                <label for="color">Pencil Color</label>
+                <input id="color" type="color" value="#000000" onchange="changeColor(this.value)">
+                <!-- <button id="rainbow">Toggle Rainbow</button> -->
+            </div>
+            <div id="container"></div>
         </div>
     </main>
 </body>
