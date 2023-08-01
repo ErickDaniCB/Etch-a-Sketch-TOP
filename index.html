@@ -15,12 +15,19 @@
         <div id="main">
             <div class="panel">
                 <button id="restart">Restart</button>
+                
                 <p>Pixel Density:</p>
                 <input id="range" type="range" value="16" min="16" max="50" oninput="changePix(this.value)">
                 <div id="sliderLabel"></div>
+                
                 <label for="color">Pencil Color</label>
                 <input id="color" type="color" value="#000000" onchange="changeColor(this.value)">
-                <!-- <button id="rainbow">Toggle Rainbow</button> -->
+                
+                <button id="gridBtn" value="ON" onclick="toggleGrid()">Toggle Grid</button>
+                <label for="gridBtn" id="gridLabel"></label>
+
+                <button id="rainbow" value="OFF" onclick="toggleRbw()">Toggle Rainbow</button>
+                <label for="rainbow" id="rainbowLabel"></label>
             </div>
             <div id="container"></div>
         </div>

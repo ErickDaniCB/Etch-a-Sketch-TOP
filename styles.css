@@ -41,11 +41,11 @@ header {
     flex-wrap: wrap;
     background-color: white;
 }
-.pixel {
-    border: 1px solid black;
-    background-color: white;
-}
 
+.border {
+    border: 1px solid black;
+}
+                
 .colored {
     background-color: black;
 }
