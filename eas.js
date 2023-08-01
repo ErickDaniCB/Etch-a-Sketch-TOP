@@ -1,9 +1,9 @@
 // Container
-const container = document.querySelector('#container');
-const canvas = document.createElement('div');
-canvas.classList.add('canvas');
-canvas.style.width = `${container.offsetWidth - 20}px`;
-canvas.style.height = `${container.offsetWidth - 20}px`;
+const CONTAINER = document.querySelector('#container');
+const CANVAS = document.createElement('div');
+CANVAS.classList.add('canvas');
+CANVAS.style.width = `${CONTAINER.offsetWidth - 20}px`;
+CANVAS.style.height = `${CONTAINER.offsetWidth - 20}px`;
 
 //Canvas default color
 let color = document.querySelector('#color').value;
@@ -16,28 +16,35 @@ function changeColor(newColor){
 // Canvas filling
 let pixelNum = 16;
 let gridBtnTgl = document.querySelector('#gridBtn').value;
+let rbwBtnTgl = document.querySelector('#rainbow').value;
 fillCanvas(pixelNum);
 
 function fillCanvas(fill){
-    container.appendChild(canvas);
-    let pixelDim = canvas.offsetWidth / fill;   
+    CONTAINER.appendChild(CANVAS);
+    let pixelDim = CANVAS.offsetWidth / fill;   
     for (let i = 1; i <= fill ** 2; i++) {
         const pixel = document.createElement('div');
         pixel.style.width = `${pixelDim}px`;
         pixel.style.height = `${pixelDim}px`;
         pixel.classList.add('pixel');
-        canvas.appendChild(pixel);
+        CANVAS.appendChild(pixel);
         pixel.addEventListener('mouseover', () => pixel.style.backgroundColor = `${color}`);
     }
+    
+    const PIXELS_NODE = document.querySelectorAll('.pixel');
     if(gridBtnTgl == "ON"){
-        const pixelsNode = document.querySelectorAll('.pixel');
-        pixelsNode.forEach(item => item.classList.add('border'));
+        PIXELS_NODE.forEach(item => item.classList.add('border'));
+    }
+    if (rbwBtnTgl == "ON") {
+        PIXELS_NODE.forEach(item => {
+            item.addEventListener('mouseover', colorRandom);
+        });
     }
 }
 
 function emptyCanvas() {
-    while (canvas.firstChild) {
-       canvas.removeChild(canvas.firstChild) 
+    while (CANVAS.firstChild) {
+       CANVAS.removeChild(CANVAS.firstChild) 
     }
 }
 
@@ -53,12 +60,12 @@ function changePix (value) {
 }
 
 // Restart Button
-const restartButton = document.querySelector('#restart');
-restartButton.addEventListener('click', restart);
+const RESTART_BUTTON = document.querySelector('#restart');
+RESTART_BUTTON.addEventListener('click', restart);
 
 function restart () {
-    const pixelsNode = document.querySelectorAll('.pixel');
-    pixelsNode.forEach(item => item.style.backgroundColor = 'White');
+    const PIXELS_NODE = document.querySelectorAll('.pixel');
+    PIXELS_NODE.forEach(item => item.style.backgroundColor = 'White');
 }
 
 // Toggle grid Button
@@ -66,20 +73,19 @@ const GRID_LABEL = document.querySelector('#gridLabel');
 GRID_LABEL.textContent = `${gridBtnTgl}`;
 
 function toggleGrid () {
-    const pixelsNode = document.querySelectorAll('.pixel');
+    const PIXELS_NODE = document.querySelectorAll('.pixel');
     if(gridBtnTgl == "ON"){
-        pixelsNode.forEach(item => item.classList.remove('border'));
+        PIXELS_NODE.forEach(item => item.classList.remove('border'));
         gridBtnTgl = "OFF";
         GRID_LABEL.textContent = `${gridBtnTgl}`;
     } 
     else if(gridBtnTgl == "OFF"){
-        pixelsNode.forEach(item => item.classList.add('border'));
+        PIXELS_NODE.forEach(item => item.classList.add('border'));
         gridBtnTgl = "ON";
         GRID_LABEL.textContent = `${gridBtnTgl}`;
     }
 }
 // Toggle rainbow button
-let rbwBtnTgl = document.querySelector('#rainbow').value;
 const RAINBOW_LABEL = document.querySelector('#rainbowLabel');
 RAINBOW_LABEL.textContent = `${rbwBtnTgl}`;
 
