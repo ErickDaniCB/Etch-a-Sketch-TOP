@@ -90,7 +90,7 @@ const RAINBOW_LABEL = document.querySelector('#rainbowLabel');
 RAINBOW_LABEL.textContent = `${rbwBtnTgl}`;
 
 function colorRandom () {
-    let rdmColor = Math.floor(Math.random()*16777215).toString(16);
+    let rdmColor = Math.floor(Math.random()*16777217).toString(16);
     color = "#" + rdmColor;
 }
 
